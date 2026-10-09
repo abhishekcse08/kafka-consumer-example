@@ -1,0 +1,47 @@
+package com.magnus.consumer;
+
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.kafka.annotation.KafkaListeners;
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class KafkaListener {
+
+    Logger logger = LoggerFactory.getLogger(KafkaListener.class);
+    public static final String TOPIC_NAME="myTopicPr4";
+    public static final String GROUP_ID="groupId-1";
+
+
+    @org.springframework.kafka.annotation
+           .KafkaListener(topics = TOPIC_NAME, groupId = GROUP_ID)
+    public  void  consume1(String message){
+
+        logger.info("Consumer1 consume the message {}", message);
+    }
+
+    @org.springframework.kafka.annotation
+            .KafkaListener(topics = TOPIC_NAME, groupId = GROUP_ID)
+    public  void  consume2(String message){
+
+        logger.info("Consumer2 consume the message {}", message);
+    }
+
+    @org.springframework.kafka.annotation
+            .KafkaListener(topics = TOPIC_NAME, groupId = GROUP_ID)
+    public  void  consume3(String message){
+
+        logger.info("Consumer3 consume the message {}", message);
+    }
+
+    @org.springframework.kafka.annotation
+            .KafkaListener(topics = TOPIC_NAME, groupId = GROUP_ID)
+    public  void  consume4(String message){
+
+        logger.info("Consumer4 consume the message {}", message);
+    }
+
+
+}
